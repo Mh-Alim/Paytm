@@ -12,11 +12,12 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "@repo/typescript-config": "*",
-    "react-redux": "^9.1.2"
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1"
   },
   "exports": {
     "./store": "./src/index.ts",
     "./hook": "./src/hooks/reduxHook.ts",
-    "./countSlice": "./src/reducers/CountReducer.ts"
+    "./action": "./src/action/index.ts"
   }
 }

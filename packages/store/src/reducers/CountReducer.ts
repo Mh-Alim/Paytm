@@ -1,20 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { INCREMENT, DECREMENT } from "../actionTypes/counter";
 
-const countSlice = createSlice({
-  name: "counter",
-  initialState: 0,
-  reducers: {
-    incrementCount: (state) => {
-      return state + 1;
-    },
-    decrementCount: (state) => {
-      return state - 1;
-    },
-  },
-});
+const INITIAL_STATE = {
+  count: 0,
+};
 
-// this is for dispatch
-export const { incrementCount, decrementCount } = countSlice.actions;
+const reducer = (state = INITIAL_STATE, action: { type: string }) => {
+  switch (action.type) {
+    case INCREMENT:
+      return {
+        ...state,
+        count: state.count + 1,
+      };
 
-// this is for configureStore
-export default countSlice.reducer;
+    case DECREMENT:
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default reducer;
