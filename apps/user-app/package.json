@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@repo/db": "*",
-    "@repo/ui": "*",
     "@repo/store": "*",
+    "@repo/ui": "*",
+    "@repo/types": "*",
     "next": "14.2.6",
+    "next-auth": "^4.24.10",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-redux": "^9.1.2"
