@@ -10,7 +10,6 @@ import { prisma } from "@repo/db/client";
 export default function Home() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
-  console.log("state is this", state);
   return (
     <div>
       <h1 className=" bg-blue-300 text-orange-800 ">Tailwind is added</h1>
