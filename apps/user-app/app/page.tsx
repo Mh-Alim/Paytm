@@ -6,10 +6,14 @@ import { useAppDispatch, useAppSelector } from "@repo/store/hook";
 import { increaseCounter, decreaseCounter } from "@repo/store/action";
 
 import { prisma } from "@repo/db/client";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
+
+  const session = useSession();
+  console.log("Session client: ", session);
   return (
     <div>
       <h1 className=" bg-blue-300 text-orange-800 ">Tailwind is added</h1>
