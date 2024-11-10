@@ -13,10 +13,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Merchant {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  name     String?
+  authType AuthType
+}
+
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String
-  password String
-  phone    String
+  id                Int                 @id @default(autoincrement())
+  name              String
+  email             String              @unique
+  password          String
+  phone             String              @unique
+  onRampTransaction onRampTransaction[]
+  Balance           Balance[]
+}
+
+model onRampTransaction {
+  id        Int          @id @default(autoincrement())
+  status    OnRampStatus
+  token     String       @unique
+  provider  String
+  amount    Int
+  startTime DateTime
+  userId    Int
+  user      User         @relation(fields: [userId], references: [id])
+}
+
+model Balance {
+  id     Int  @id @default(autoincrement())
+  amount Int
+  locked Int
+  userId Int  @unique
+  user   User @relation(fields: [userId], references: [id])
+}
+
+enum OnRampStatus {
+  SUCCESS
+  FAILURE
+  PROCESSING
+}
+
+enum AuthType {
+  GOOGLE
+  GITHUB
 }

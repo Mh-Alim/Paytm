@@ -1,10 +1,7 @@
 import { Button } from "./button";
 
 interface AppbarProps {
-  user?: {
-    name?: string;
-  };
-
+  user?: any;
   onSignin: any;
   onSignout: any;
 }
