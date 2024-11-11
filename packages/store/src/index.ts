@@ -8,6 +8,8 @@ const rootReducer = combineReducers({
   counter: counterReducer,
 });
 
+
+
 export const store = createStore(rootReducer);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
