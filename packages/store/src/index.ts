@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   counter: counterReducer,
 });
 
-
+console.log("adding log")
 
 export const store = createStore(rootReducer);
 
