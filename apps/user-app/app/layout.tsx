@@ -26,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <AppbarClient />
-        <ProviderWrapper>{children}</ProviderWrapper>
+        <ProviderWrapper>
+          <AppbarClient />
+          {children}
+        </ProviderWrapper>
       </body>
     </html>
   );
