@@ -64,14 +64,29 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
 
-          const user = await prisma.user.create({
-            data: {
-              name: credentials.name,
-              phone: credentials.phone,
-              email: credentials.email,
-              password: hashedPassword,
-            },
-          });
+          const { user, balance } = await prisma.$transaction(
+            async (prisma) => {
+              const user = await prisma.user.create({
+                data: {
+                  name: credentials.name,
+                  phone: credentials.phone,
+                  email: credentials.email,
+                  password: hashedPassword,
+                },
+              });
+
+              const balance = await prisma.balance.create({
+                data: {
+                  amount: 0,
+                  locked: 0,
+                  userId: user.id,
+                },
+              });
+
+              return { user, balance };
+            }
+          );
+
           return {
             id: user.id.toString(),
             name: user.name,

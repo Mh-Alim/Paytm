@@ -22,7 +22,7 @@ export const AddMoney = () => {
   const [redirectUrl, setRedirectUrl] = useState(
     SUPPORTED_BANKS[0]?.redirectUrl
   );
-  const [provider, setProvider] = useState("");
+  const [provider, setProvider] = useState(SUPPORTED_BANKS[0]?.name);
   const [amout, setAmount] = useState(0);
   return (
     <Card title="Add Money">

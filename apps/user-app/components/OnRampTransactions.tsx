@@ -31,7 +31,11 @@ export const OnRampTransactions = ({
             </div>
             <div className="flex flex-col justify-center">
               + Rs {t.amount / 100}
-              <span className=" text-green-600 text-xs ">{t.status}</span>
+              <span
+                className={` ${t.status === "SUCCESS" ? "text-green-600 " : "text-red-600"} text-xs `}
+              >
+                {t.status}
+              </span>
             </div>
           </div>
         ))}
