@@ -1,4 +1,7 @@
+"use client";
+
 import { Card } from "@repo/ui/card";
+import { useAppDispatch, useAppSelector } from "@repo/store/hook";
 
 export const OnRampTransactions = ({
   transactions,
@@ -11,6 +14,7 @@ export const OnRampTransactions = ({
     provider: string;
   }[];
 }) => {
+
   if (!transactions.length) {
     return (
       <Card title="Recent Transactions">

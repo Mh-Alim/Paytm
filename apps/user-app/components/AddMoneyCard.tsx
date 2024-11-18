@@ -6,6 +6,9 @@ import { Select } from "@repo/ui/select";
 import { useState } from "react";
 import { TextInput } from "@repo/ui/textinput";
 import { createOnRampTransaction } from "../app/lib/actions/createOnRampTransactions";
+// import { useAppDispatch, useAppSelector } from "@repo/store/hook";
+import { useDispatch } from "react-redux";
+import { refreshScreen } from "@repo/store/action";
 
 const SUPPORTED_BANKS = [
   {
@@ -19,6 +22,7 @@ const SUPPORTED_BANKS = [
 ];
 
 export const AddMoney = () => {
+  const dispatch = useDispatch();
   const [redirectUrl, setRedirectUrl] = useState(
     SUPPORTED_BANKS[0]?.redirectUrl
   );
@@ -50,7 +54,8 @@ export const AddMoney = () => {
         <div className="flex justify-center pt-4">
           <Button
             onClick={async () => {
-              await createOnRampTransaction(provider, amout);
+              await createOnRampTransaction(provider || "", amout);
+              dispatch(refreshScreen());
             }}
           >
             Add Money

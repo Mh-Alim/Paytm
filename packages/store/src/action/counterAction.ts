@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from "../actionTypes/counter";
+import { INCREMENT, DECREMENT, REFRESH } from "../actionTypes/counter";
 
 export const increaseCounter = () => {
   return {
@@ -9,5 +9,11 @@ export const increaseCounter = () => {
 export const decreaseCounter = () => {
   return {
     type: DECREMENT,
+  };
+};
+
+export const refreshScreen = () => {
+  return {
+    type: REFRESH,
   };
 };

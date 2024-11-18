@@ -1,3 +1,3 @@
-import { increaseCounter, decreaseCounter } from "./counterAction";
+import { increaseCounter, decreaseCounter, refreshScreen } from "./counterAction";
 
-export { increaseCounter, decreaseCounter };
+export { increaseCounter, decreaseCounter, refreshScreen };
