@@ -10,6 +10,10 @@ export function SendCard() {
   const [number, setNumber] = useState("");
   const [amount, setAmount] = useState("");
 
+
+
+
+  
   return (
     <div className="h-[90vh]">
       <Center>
