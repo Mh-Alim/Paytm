@@ -50,7 +50,7 @@ export const AddMoney = () => {
         <div className="flex justify-center pt-4">
           <Button
             onClick={async () => {
-              await createOnRampTransaction(provider, amout);
+              await createOnRampTransaction(provider || "", amout);
             }}
           >
             Add Money
