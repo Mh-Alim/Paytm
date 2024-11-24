@@ -4,9 +4,9 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "db:generate": "cd packages/db && npx prisma generate && cd ../../"
+    "db:generate": "cd packages/db && npx prisma generate && cd ../../",
+    "start-user-app": "cd ./apps/user-app && npm run start"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
@@ -20,10 +20,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "bcrypt": "^5.1.1",
-    "zod": "^3.23.8"
-  }
+  ]
 }
